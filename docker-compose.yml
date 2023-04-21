@@ -6,7 +6,7 @@ services:
     # image: quay.io/invidious/invidious:latest-arm64 # ARM64/AArch64 devices
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       # Please read the following file for a comprehensive list of all available
       # configuration options and their associated syntax:
