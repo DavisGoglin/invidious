@@ -39,7 +39,7 @@ services:
     image: docker.io/library/postgres:14
     restart: unless-stopped
     volumes:
-      - invidious-data:/var/lib/postgresql/data
+      - /mnt/docker-store/invidious:/var/lib/postgresql/data
       - ./config/sql:/config/sql
       - ./docker/init-invidious-db.sh:/docker-entrypoint-initdb.d/init-invidious-db.sh
     environment:
@@ -48,7 +48,3 @@ services:
       POSTGRES_PASSWORD: kemal
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
-
-volumes:
-  invidious-data:
-    external: true
